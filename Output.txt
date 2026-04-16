@@ -1,0 +1,8 @@
+Hello, World!
+Hi!!, I'm NandhiniMogane
+sum = 14
+Enter the num1
+2
+Enter the num2
+2
+The sum of 2 and 2 is 4
