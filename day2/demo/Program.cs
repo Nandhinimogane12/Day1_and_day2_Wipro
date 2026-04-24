@@ -89,8 +89,8 @@ Console.WriteLine(arr[3]);
 //int[,] array = new int[2, 3] { { 1, 2, 3 },{ 4, 5, 6 } };
 //three dimensional array
 //Console.WriteLine("three_dimensional array");
-//int[,,] ar=new int[2, 2, 2]{{1,2},{3,4} },{{5,6},{6,7}};
-//fgor loop
+//int[,,] ar=new int[2, 2, 2]{{{1,2},{3,4} },{{5,6},{6,7}}};
+//for loop
 int i = 1;
 for (i = 1; i <= 5; i++)
 {
