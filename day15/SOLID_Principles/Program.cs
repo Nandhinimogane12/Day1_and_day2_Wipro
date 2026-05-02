@@ -6,7 +6,7 @@ namespace MovieBookingSOLID
     // SINGLE RESPONSIBILITY PRINCIPLE (SRP)
     // =========================================================
 
-    // ❌ WITHOUT SRP
+    //  WITHOUT SRP
     /*
     class MovieSystem
     {
