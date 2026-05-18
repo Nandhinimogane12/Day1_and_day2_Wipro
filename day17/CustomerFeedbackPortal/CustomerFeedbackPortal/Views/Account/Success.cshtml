@@ -1,0 +1,10 @@
+﻿@{
+    ViewData["Title"] = "Registration Successful";
+}
+
+<div class="alert alert-success">
+    <h2>Registration Successful!</h2>
+    <p>Welcome, @ViewBag.Username</p>
+</div>
+
+<a asp-controller="Account" asp-action="Register" class="btn btn-primary">Register Another User</a>

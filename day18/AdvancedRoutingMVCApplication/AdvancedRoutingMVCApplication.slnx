@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="AdvancedRoutingApp.Tests/AdvancedRoutingApp.Tests.csproj" />
+  <Project Path="AdvancedRoutingMVCApplication/AdvancedRoutingMVCApplication.csproj" />
+</Solution>

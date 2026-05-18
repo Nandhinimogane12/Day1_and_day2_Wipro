@@ -1,0 +1,52 @@
+﻿@model Feedback
+@{
+    ViewData["Title"] = "Submit Feedback";
+    var ratings = new List<SelectListItem> {
+        new SelectListItem { Text = "1 - Poor", Value = "1" },
+        new SelectListItem { Text = "2 - Fair", Value = "2" },
+        new SelectListItem { Text = "3 - Good", Value = "3" },
+        new SelectListItem { Text = "4 - Very Good", Value = "4" },
+        new SelectListItem { Text = "5 - Excellent", Value = "5" }
+    };
+}
+
+<h2>Customer Feedback</h2>
+
+<!-- FormTagHelper + AnchorTagHelper -->
+<form asp-controller="Feedback" asp-action="Create" method="post">
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <!-- HTML Helper: TextBoxFor -->
+    <div class="form-group">
+        @Html.LabelFor(m => m.Name)
+        @Html.TextBoxFor(m => m.Name, new { @class = "form-control", placeholder = "Enter your name" })
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(m => m.Email)
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control", placeholder = "Enter email", type = "email" })
+        <span asp-validation-for="Email" class="text-danger"></span>
+    </div>
+
+    <!-- HTML Helper: DropDownListFor -->
+    <div class="form-group">
+        @Html.LabelFor(m => m.Rating)
+        @Html.DropDownListFor(m => m.Rating, ratings, "Select Rating", new { @class = "form-control" })
+        <span asp-validation-for="Rating" class="text-danger"></span>
+    </div>
+
+    <!-- HTML Helper: TextAreaFor -->
+    <div class="form-group">
+        @Html.LabelFor(m => m.Comments)
+        @Html.TextAreaFor(m => m.Comments, 4, 50, new { @class = "form-control", placeholder = "Your comments..." })
+        <span asp-validation-for="Comments" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+    <a asp-controller="Feedback" asp-action="Index" class="btn btn-link">View All Feedback</a>
+</form>
+
+<!-- User Story 3: Custom TagHelper usage -->
+<h4>Rate with Stars:</h4>
+<rating-star rating="@Model.Rating" max-rating="5"></rating-star>
