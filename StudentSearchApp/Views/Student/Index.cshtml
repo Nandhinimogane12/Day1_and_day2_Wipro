@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Student Search";
+}
+
+<h2>AJAX Based Student Search</h2>
+
+<div class="form-group">
+    <label>Enter Student ID:</label>
+    <input type="number" id="studentId" class="form-control" style="width: 200px; display: inline-block;" />
+    <button id="btnSearch" class="btn btn-primary">Search</button>
+</div>
+
+<div id="result" class="mt-4" style="display:none;">
+    <h4>Student Details</h4>
+    <table class="table table-bordered" style="width: 500px;">
+        <tr><td><b>ID</b></td><td id="resId"></td></tr>
+        <tr><td><b>Name</b></td><td id="resName"></td></tr>
+        <tr><td><b>Course</b></td><td id="resCourse"></td></tr>
+        <tr><td><b>Email</b></td><td id="resEmail"></td></tr>
+        <tr><td><b>Age</b></td><td id="resAge"></td></tr>
+    </table>
+</div>
+
+<div id="errorMsg" class="alert alert-danger mt-3" style="display:none;"></div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+    $(function () {
+    $("#btnSearch").click(function () {
+    var id = $("#studentId").val();
+
+    if (id === "") {
+    alert("Please enter Student ID");
+    return;
+    }
+
+    $.ajax({
+    url: '@Url.Action("GetStudent", "Student")',
+    type: 'GET',
+    data: { studentId: id },
+    success: function (response) {
+    if (response.success) {
+    $("#errorMsg").hide();
+    $("#resId").text(response.data.studentId);
+    $("#resName").text(response.data.name);
+    $("#resCourse").text(response.data.course);
+    $("#resEmail").text(response.data.email);
+    $("#resAge").text(response.data.age);
+    $("#result").show();
+    } else {
+    $("#result").hide();
+    $("#errorMsg").text(response.message).show();
+    }
+    },
+    error: function () {
+    $("#result").hide();
+    $("#errorMsg").text("Error occurred while fetching data").show();
+    }
+    });
+    });
+    });
+</script>
