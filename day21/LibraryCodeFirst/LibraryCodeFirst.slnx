@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="LibraryCodeFirst/LibraryCodeFirst.csproj" />
+  <Project Path="LibraryDbFirst/LibraryDbFirst.csproj" />
+</Solution>
