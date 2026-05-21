@@ -1,0 +1,12 @@
+﻿@model IEnumerable<SecureTaskManager.Models.TaskItem>
+
+@foreach (var task in Model)
+{
+    <div>
+
+        <h3>@task.Title</h3>
+
+        <p>@task.Description</p>
+
+    </div>
+}
