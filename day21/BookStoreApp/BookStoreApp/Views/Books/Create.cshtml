@@ -1,0 +1,9 @@
+﻿@model Book
+<form asp-action="Create" method="post">
+    Title: <input asp-for="Title" /><br />
+    Author: <input asp-for="Author" /><br />
+    Price: <input asp-for="Price" /><br />
+    ISBN: <input asp-for="ISBN" /><br />
+    Date: <input asp-for="PublishedDate" type="date" /><br />
+    <button type="submit">Save</button>
+</form>

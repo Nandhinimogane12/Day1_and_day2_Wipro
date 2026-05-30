@@ -1,0 +1,22 @@
+﻿@model IEnumerable<SecureShop.Models.Product>
+
+<h2>Products</h2>
+
+<table class="table table-bordered">
+
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Description</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+            <td>@item.Description</td>
+        </tr>
+    }
+
+</table>

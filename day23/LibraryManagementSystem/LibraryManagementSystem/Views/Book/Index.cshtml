@@ -1,0 +1,311 @@
+﻿@model IEnumerable<LibraryManagementSystem.Models.Book>
+
+@{
+    ViewData["Title"] = "Books";
+}
+
+<h2>Library Books</h2>
+
+<!-- SEARCH -->
+
+<form method="get">
+
+    <div class="row mb-3">
+
+        <div class="col-md-4">
+
+            <input type="text"
+                   name="search"
+                   class="form-control"
+                   placeholder="Search Book" />
+
+        </div>
+
+        <div class="col-md-2">
+
+            <button type="submit"
+                    class="btn btn-dark">
+
+                Search
+
+            </button>
+
+        </div>
+
+    </div>
+
+</form>
+
+<hr />
+
+<!-- BOOK FORM -->
+
+<div class="row">
+
+    <div class="col-md-4">
+
+        <input type="hidden" id="bookId" />
+
+        <div class="form-group mb-3">
+
+            <label>Book Title</label>
+
+            <input type="text"
+                   id="title"
+                   class="form-control" />
+
+        </div>
+
+        <div class="form-group mb-3">
+
+            <label>Price</label>
+
+            <input type="number"
+                   id="price"
+                   class="form-control" />
+
+        </div>
+
+        <button id="saveBtn"
+                class="btn btn-primary">
+
+            Save Book
+
+        </button>
+
+        <button id="updateBtn"
+                class="btn btn-success">
+
+            Update Book
+
+        </button>
+
+    </div>
+
+</div>
+
+<hr />
+
+<!-- BOOK TABLE -->
+
+<table class="table table-bordered table-striped">
+
+    <thead>
+
+        <tr>
+
+            <th>Id</th>
+
+            <th>Title</th>
+
+            <th>Price</th>
+
+            <th>Action</th>
+
+        </tr>
+
+    </thead>
+
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>@item.Id</td>
+
+                <td>@item.Title</td>
+
+                <td>@item.Price</td>
+
+                <td>
+
+                    <button class="btn btn-warning editBtn"
+                            data-id="@item.Id"
+                            data-title="@item.Title"
+                            data-price="@item.Price">
+
+                        Edit
+
+                    </button>
+
+                    <button class="btn btn-danger deleteBtn"
+                            data-id="@item.Id">
+
+                        Delete
+
+                    </button>
+
+                </td>
+
+            </tr>
+        }
+
+    </tbody>
+
+</table>
+
+<!-- PAGINATION -->
+
+<div class="mt-3">
+
+    <a href="/Book?page=@(ViewBag.CurrentPage - 1)"
+       class="btn btn-secondary">
+
+        Previous
+
+    </a>
+
+    <a href="/Book?page=@(ViewBag.CurrentPage + 1)"
+       class="btn btn-secondary">
+
+        Next
+
+    </a>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script>
+
+    // CREATE BOOK
+
+    $("#saveBtn").click(function () {
+
+    var bookData = {
+
+    Title: $("#title").val(),
+
+    Price: $("#price").val()
+    };
+
+    $.ajax({
+
+    url: '/Book/Create',
+
+    type: 'POST',
+
+    data: bookData,
+
+    success: function (response) {
+
+    if (response.success) {
+
+    alert("Book Added Successfully");
+
+    location.reload();
+    }
+    else {
+
+    alert("Add Failed");
+    }
+    },
+
+    error: function () {
+
+    alert("AJAX Error");
+    }
+
+    });
+
+    });
+
+    // EDIT LOAD
+
+    $(document).on("click", ".editBtn", function () {
+
+    $("#bookId").val($(this).data("id"));
+
+    $("#title").val($(this).data("title"));
+
+    $("#price").val($(this).data("price"));
+
+    });
+
+    // UPDATE BOOK
+
+    $("#updateBtn").click(function () {
+
+    var bookData = {
+
+    Id: $("#bookId").val(),
+
+    Title: $("#title").val(),
+
+    Price: $("#price").val()
+    };
+
+    $.ajax({
+
+    url: '/Book/Update',
+
+    type: 'POST',
+
+    data: bookData,
+
+    success: function (response) {
+
+    if (response.success) {
+
+    alert("Updated Successfully");
+
+    location.reload();
+    }
+    else {
+
+    alert("Update Failed");
+    }
+    },
+
+    error: function () {
+
+    alert("AJAX Error");
+    }
+
+    });
+
+    });
+
+    // DELETE BOOK
+
+    $(document).on("click", ".deleteBtn", function () {
+
+    var id = $(this).data("id");
+
+    if (confirm("Are you sure to delete?")) {
+
+    $.ajax({
+
+    url: '/Book/Delete',
+
+    type: 'POST',
+
+    data: { id: id },
+
+    success: function (response) {
+
+    if (response.success) {
+
+    alert("Deleted Successfully");
+
+    location.reload();
+    }
+    else {
+
+    alert("Delete Failed");
+    }
+    },
+
+    error: function () {
+
+    alert("AJAX Error");
+    }
+
+    });
+
+    }
+
+    });
+
+</script>

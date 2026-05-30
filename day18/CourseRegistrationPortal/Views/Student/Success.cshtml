@@ -1,0 +1,14 @@
+@model CourseRegistrationPortal.Models.Student
+
+@{
+    ViewData["Title"] = "Success";
+}
+
+<h2>Registration Successful!</h2>
+<div class="alert alert-success">
+    <h4>Thank you @Model.Name!</h4>
+    <p>You have successfully registered for <strong>@Model.CourseName</strong></p>
+    <p>Confirmation sent to: @Model.Email</p>
+</div>
+
+<a asp-action="Register" asp-controller="Student" class="btn btn-primary">Register Another Student</a>
