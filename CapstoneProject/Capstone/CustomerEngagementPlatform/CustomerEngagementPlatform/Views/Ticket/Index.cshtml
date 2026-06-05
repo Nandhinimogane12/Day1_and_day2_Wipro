@@ -1,0 +1,76 @@
+﻿@model IEnumerable<CustomerEngagementPlatform.Models.Ticket>
+
+<h2>Ticket List</h2>
+
+<p>
+    <a asp-action="Create">Create New Ticket</a>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Ticket ID</th>
+            <th>Title</th>
+            <th>Status</th>
+            <th>Customer</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.TicketId</td>
+                <td>@item.Title</td>
+                <td>@item.Status</td>
+                <td>@item.Customer?.Name</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@item.TicketId">Details</a> |
+                    <a asp-action="Edit" asp-route-id="@item.TicketId">Edit</a> |
+                    <a asp-action="Delete" asp-route-id="@item.TicketId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<hr />
+
+<h3>AJAX Ticket Search</h3>
+
+<input type="text" id="keyword" placeholder="Enter Ticket Title" />
+<button id="searchBtn">Search</button>
+
+<div id="result"></div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+    $("#searchBtn").click(function () {
+
+    $.ajax({
+    url: '/Ticket/Search',
+    type: 'GET',
+    data: {
+    keyword: $("#keyword").val()
+    },
+    success: function (data) {
+
+    let output = "";
+
+    data.forEach(function(item){
+
+    output += "<p>"
+    + item.title
+    + " - "
+    + item.status
+    + "</p>";
+    });
+
+    $("#result").html(output);
+    }
+    });
+
+    });
+</script>

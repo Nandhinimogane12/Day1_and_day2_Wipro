@@ -1,0 +1,12 @@
+﻿Azure App Service Hosting Model
+
+1. Develop the ASP.NET Core MVC application locally.
+2. Store source code in GitHub.
+3. Configure GitHub Actions for Continuous Integration.
+4. Build Docker container using Dockerfile.
+5. Push container image to Azure Container Registry.
+6. Deploy application to Azure App Service.
+7. Configure SQL Server connection string in Azure App Service settings.
+8. Enable monitoring and logging through Azure Portal.
+9. Scale application instances based on traffic requirements.
+10. Secure APIs using JWT Authentication and Role-Based Authorization.

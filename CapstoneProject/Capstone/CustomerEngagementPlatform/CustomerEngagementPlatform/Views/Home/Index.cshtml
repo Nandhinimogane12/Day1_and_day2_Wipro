@@ -1,0 +1,86 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Customer Engagement Platform</h1>
+    <p class="lead">
+        Manage customer information, track service requests, and access secure REST APIs.
+    </p>
+</div>
+
+<hr />
+
+<div class="row mt-4">
+
+    <!-- Customer Management -->
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3>Customer Management</h3>
+
+                <p>
+                    Manage customer records including name, email, and contact details.
+                    Customers are associated with service tickets raised for support.
+                </p>
+
+                <a href="/Customer" class="btn btn-primary">
+                    Open Customers
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Service Ticket Management -->
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3>Service Ticket Management</h3>
+
+                <p>
+                    Create, monitor, and resolve customer service requests.
+                    Each ticket is linked to a customer and helps track support activities.
+                </p>
+
+                <a href="/Ticket" class="btn btn-success">
+                    Open Tickets
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Swagger API -->
+    <div class="col-md-4">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h3>Swagger API</h3>
+
+                <p>
+                    Access REST API documentation, test endpoints,
+                    generate JWT tokens, and validate secure API operations.
+                </p>
+
+                <a href="/swagger" class="btn btn-warning">
+                    Open Swagger
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<hr />
+
+<h4>Project Features</h4>
+
+<ul class="list-group">
+    <li class="list-group-item">ASP.NET Core MVC (.NET 8)</li>
+    <li class="list-group-item">Entity Framework Core & ADO.NET</li>
+    <li class="list-group-item">Repository Pattern & SOLID Principles</li>
+    <li class="list-group-item">JWT Authentication & Role-Based Authorization</li>
+    <li class="list-group-item">REST APIs with Swagger</li>
+    <li class="list-group-item">AJAX Integration</li>
+    <li class="list-group-item">SQL Server Database</li>
+    <li class="list-group-item">Docker Containerization</li>
+    <li class="list-group-item">GitHub Actions CI/CD Pipeline</li>
+</ul>

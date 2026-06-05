@@ -1,0 +1,31 @@
+﻿Generate Customer model for ASP.NET Core MVC.
+
+Generate Customer CRUD Controller using Entity Framework Core.
+
+Generate Ticket model and CRUD operations.
+
+Generate Repository Pattern implementation.
+
+Generate Entity Framework Core DbContext.
+
+Generate SQL Server connection string configuration.
+
+Generate Razor Views for Customer CRUD.
+
+Generate Razor Views for Ticket CRUD.
+
+Generate AJAX search functionality for Tickets.
+
+Generate REST API controller for Customers.
+
+Generate JWT Authentication setup in ASP.NET Core.
+
+Generate Role-Based Authorization using Admin role.
+
+Generate Swagger JWT configuration.
+
+Generate xUnit unit test cases for Customer model.
+
+Generate Dockerfile for ASP.NET Core 8 application.
+
+Generate GitHub Actions workflow for CI/CD.

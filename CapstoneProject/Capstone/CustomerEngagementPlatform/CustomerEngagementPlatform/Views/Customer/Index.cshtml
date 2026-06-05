@@ -1,0 +1,28 @@
+﻿@model IEnumerable<CustomerEngagementPlatform.Models.Customer>
+
+<h2>Customer List</h2>
+
+<a asp-action="Create" class="btn btn-primary mb-3">
+    Add Customer
+</a>
+
+<table class="table table-bordered table-striped table-hover">
+
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CustomerId</td>
+            <td>@item.Name</td>
+            <td>@item.Email</td>
+            <td>@item.Phone</td>
+        </tr>
+    }
+
+</table>

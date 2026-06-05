@@ -1,0 +1,30 @@
+﻿@model CustomerEngagementPlatform.Models.Ticket
+
+<h2>Ticket Details</h2>
+
+<p>
+    <strong>Ticket ID:</strong>
+    @Model.TicketId
+</p>
+
+<p>
+    <strong>Title:</strong>
+    @Model.Title
+</p>
+
+<p>
+    <strong>Description:</strong>
+    @Model.Description
+</p>
+
+<p>
+    <strong>Status:</strong>
+    @Model.Status
+</p>
+
+<p>
+    <strong>Customer:</strong>
+    @Model.Customer?.Name
+</p>
+
+<a asp-action="Index">Back</a>
