@@ -1,0 +1,11 @@
+{
+  "servers": {
+    "anthropic": {
+      "command": "npx",
+      "args": ["-y", "@anthropic-ai/claude-code"],
+      "env": {
+        "ANTHROPIC_API_KEY": "sk-ant-api03-YOUR_KEY_HERE"
+      }
+    }
+  }
+}
