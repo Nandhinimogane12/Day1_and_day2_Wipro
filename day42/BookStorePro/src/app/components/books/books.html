@@ -1,0 +1,25 @@
+<h2>Manual Subscription</h2>
+<p>Books Count: {{ books.length }}</p>
+
+<app-book-card
+*ngFor="let book of books"
+[book]="book">
+</app-book-card>
+
+<hr>
+
+<h2>Async Pipe Example</h2>
+
+<div *ngFor="let book of books$ | async">
+
+  <h4>{{book.title | uppercase}}</h4>
+
+  <p>
+    {{book.price | currency:'INR'}}
+  </p>
+
+  <p>
+    {{book.publicationDate | date:'dd/MM/yyyy'}}
+  </p>
+
+</div>
